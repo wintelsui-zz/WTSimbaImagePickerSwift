@@ -1,0 +1,16 @@
+/* 
+  WTSimbaImagePicker.strings
+  WTSimbaImagePickerDemo
+
+  Created by smalltalk on 23/3/2020.
+  Copyright © 2020 sfs. All rights reserved.
+*/
+
+"cancel" = "取消";
+"done" = "完成";
+"preview" = "预览";
+"I Know" = "知道了";
+"Select at least %ld pictures" = "至少选择 %ld 张图片";
+"Select a maximum of %ld pictures" = "你最多只能选择 %ld 张图片";
+"Open system setting" = "打开系统设置";
+"Allow App to access your photos in your device's \"Setting\" > \"Privacy\"  > \"Photos\"" = "请允许应用访问你的照片，在设备系统 “设置” > “隐私” > ”相册“ 中打开权限";

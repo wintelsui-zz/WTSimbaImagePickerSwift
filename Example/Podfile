@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'WTSimbaImagePickerSwift_Example' do
+  pod 'WTSimbaImagePickerSwift', :path => '../'
+
+  target 'WTSimbaImagePickerSwift_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end

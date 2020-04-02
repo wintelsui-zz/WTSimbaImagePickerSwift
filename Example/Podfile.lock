@@ -1,0 +1,16 @@
+PODS:
+  - WTSimbaImagePickerSwift (0.1.0)
+
+DEPENDENCIES:
+  - WTSimbaImagePickerSwift (from `../`)
+
+EXTERNAL SOURCES:
+  WTSimbaImagePickerSwift:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  WTSimbaImagePickerSwift: 583be42c7b7f6830002d7280f2ba1d9e76c1c4e0
+
+PODFILE CHECKSUM: d7b76b2aca4c832d3df3d14be7a6d07a56d0887b
+
+COCOAPODS: 1.9.1

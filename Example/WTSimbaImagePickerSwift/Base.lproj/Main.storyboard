@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GaT-5c-cBC">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="WTSimbaImagePickerDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="azo-aM-cBm">
+                                <rect key="frame" x="14" y="772" width="386" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="kRL-cx-DD4"/>
+                                </constraints>
+                                <state key="normal" title="Open OC Controller"/>
+                                <connections>
+                                    <segue destination="uBk-Bq-1dT" kind="push" id="HTs-vD-CS0"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="azo-aM-cBm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="14" id="2tz-f4-CUP"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="azo-aM-cBm" secondAttribute="trailing" constant="14" id="N1v-02-mmB"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="azo-aM-cBm" secondAttribute="bottom" constant="34" id="uon-Ax-as8"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="dbC-1h-4W0"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="669.56521739130437" y="5.3571428571428568"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="QGs-fv-XMx">
+            <objects>
+                <viewController storyboardIdentifier="OCViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="uBk-Bq-1dT" customClass="OCViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="04M-Np-EqA">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wvF-UL-Dve">
+                                <rect key="frame" x="157" y="428" width="100" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="7ik-K7-K7y"/>
+                                    <constraint firstAttribute="height" constant="40" id="z7t-ab-c3R"/>
+                                </constraints>
+                                <state key="normal" title="Picker"/>
+                                <connections>
+                                    <action selector="pickerButtonPressed:" destination="uBk-Bq-1dT" eventType="touchUpInside" id="GU8-tW-nY5"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="wvF-UL-Dve" firstAttribute="centerX" secondItem="04M-Np-EqA" secondAttribute="centerX" id="62U-1n-cjN"/>
+                            <constraint firstItem="wvF-UL-Dve" firstAttribute="centerY" secondItem="04M-Np-EqA" secondAttribute="centerY" id="s30-gM-lj0"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Kgm-9P-TrO"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="aqc-Do-ODh"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="B0H-d8-eLt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1545" y="5"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="nOK-QK-naO">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GaT-5c-cBC" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="yLC-dg-dT4">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="fhp-qD-SS8"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ufD-XQ-bF8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-239" y="6"/>
+        </scene>
+    </scenes>
+</document>

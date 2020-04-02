@@ -1,0 +1,17 @@
+/* 
+  WTSimbaImagePicker.strings
+  WTSimbaImagePickerDemo
+
+  Created by smalltalk on 23/3/2020.
+  Copyright © 2020 sfs. All rights reserved.
+*/
+
+"cancel" = "Cancel";
+"done" = "Done";
+"preview" = "Preview";
+"I Know" = "I Know";
+"Select at least %ld pictures" = "Select at least %ld pictures";
+"Select a maximum of %ld pictures" = "Select a maximum of %ld pictures";
+"Open system setting" = "Open system setting";
+"Allow App to access your photos in your device's \"Setting\" > \"Privacy\"  > \"Photos\"" =
+"Allow App to access your photos in your device's \"Setting\" > \"Privacy\"  > \"Photos\"";
