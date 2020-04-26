@@ -21,10 +21,10 @@ open class WTSimbaImagePickerViewModel: NSObject {
 
 open class WTSimbaImagePickerImageEditedModel: NSObject {
     
-    var imagePath = ""
-    var image: UIImage? = nil
+    open var imagePath = ""
+    open var image: UIImage? = nil
     
-    func getImageCache() -> UIImage? {
+    open func getImageCache() -> UIImage? {
         
         return nil
     }

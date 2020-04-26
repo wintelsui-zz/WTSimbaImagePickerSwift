@@ -38,7 +38,11 @@ open class WTSimbaImageAssistant: NSObject {
         
     }
     
-    class func collections(ignoreEmpty: Bool = false, mediaType: WTSimbaImagePickerMediaTypes = .all) -> [PHAssetCollection] {
+    open class func collectionsDefaut() -> [PHAssetCollection] {
+        return WTSimbaImageAssistant.collections()
+    }
+    
+    open class func collections(ignoreEmpty: Bool = false, mediaType: WTSimbaImagePickerMediaTypes = .all) -> [PHAssetCollection] {
         var collections = [PHAssetCollection]()
         
         let userAlbumsOptions = PHFetchOptions()
@@ -99,7 +103,7 @@ open class WTSimbaImageAssistant: NSObject {
         return collections
     }
     
-    class func assets(from collection: PHAssetCollection, mediaType: WTSimbaImagePickerMediaTypes = .all) -> [PHAsset] {
+    open class func assets(from collection: PHAssetCollection, mediaType: WTSimbaImagePickerMediaTypes = .all) -> [PHAsset] {
         var assets = [PHAsset]()
         
         let fetchOptions = PHFetchOptions()
@@ -121,7 +125,8 @@ open class WTSimbaImageAssistant: NSObject {
         return assets
     }
     
-    class func firstAssets(from collection: PHAssetCollection) -> PHAsset? {
+    
+    open class func firstAssets(from collection: PHAssetCollection) -> PHAsset? {
         
         let fetchOptions = PHFetchOptions()
         let assetsResult = PHAsset.fetchAssets(in: collection, options: fetchOptions)
@@ -135,16 +140,16 @@ open class WTSimbaImageAssistant: NSObject {
 
 // MARK: - Attach Start
 
-extension WTSimbaImageAssistant {
+public extension WTSimbaImageAssistant {
     
     @available(iOS 8, *)
-    open class func authorizationStatus() -> PHAuthorizationStatus {
+    class func authorizationStatus() -> PHAuthorizationStatus {
         
         return PHPhotoLibrary.authorizationStatus()
     }
     
     @available(iOS 8, *)
-    open class func authorizationStatusRequestIfNotDetermined(_ handler: @escaping (PHAuthorizationStatus) -> Void) -> PHAuthorizationStatus{
+    class func authorizationStatusRequestIfNotDetermined(_ handler: @escaping (PHAuthorizationStatus) -> Void) -> PHAuthorizationStatus{
         
         let status = PHPhotoLibrary.authorizationStatus()
         if status == .notDetermined {
@@ -156,6 +161,40 @@ extension WTSimbaImageAssistant {
         
         return status
     }
+    
+    class func image(asset: PHAsset, resultHandler: @escaping (UIImage?) -> Void, sizeMode: WTSimbaAssetImageSizeMode = .fullResolution, thumbnailSize: CGSize = CGSize(width: 100, height: 100)) {
+        
+        var targetSize = PHImageManagerMaximumSize
+        let contentMode: PHImageContentMode = .aspectFit
+        
+        if sizeMode == .screenSize {
+            let width = UIScreen.main.bounds.size.width < UIScreen.main.bounds.size.height ? UIScreen.main.bounds.size.width : UIScreen.main.bounds.size.height
+            let height = UIScreen.main.bounds.size.width > UIScreen.main.bounds.size.height ? UIScreen.main.bounds.size.width : UIScreen.main.bounds.size.height
+            targetSize = CGSize(width: width, height: height)
+        }else if sizeMode == .thumbnail {
+            targetSize = thumbnailSize
+        }
+        
+        PHImageManager.default().requestImage(for: asset, targetSize: targetSize, contentMode: contentMode, options: nil) { (img, _ ) in
+            resultHandler(img)
+        }
+    }
+    
+    class func imageFullResolution(asset: PHAsset, resultHandler: @escaping (UIImage?) -> Void) {
+        
+        WTSimbaImageAssistant.image(asset: asset, resultHandler: resultHandler)
+    }
+    
+    class func imageScreenSize(asset: PHAsset, thumbnailSize: CGSize, resultHandler: @escaping (UIImage?) -> Void) {
+        
+        WTSimbaImageAssistant.image(asset: asset, resultHandler: resultHandler, sizeMode: .screenSize)
+    }
+    
+    class func imageThumbnail(asset: PHAsset, thumbnailSize: CGSize, resultHandler: @escaping (UIImage?) -> Void) {
+        
+        WTSimbaImageAssistant.image(asset: asset, resultHandler: resultHandler, sizeMode: .thumbnail, thumbnailSize: thumbnailSize)
+    }
+    
     
     func saveImage(image: UIImage, album: PHAssetCollection? = nil, completionHandler: ((Bool, PHAsset?, Error?) -> Void)? = nil) {
         
@@ -180,22 +219,4 @@ extension WTSimbaImageAssistant {
         }
     }
     
-    class func image(asset: PHAsset, resultHandler: @escaping (UIImage?) -> Void, sizeMode: WTSimbaAssetImageSizeMode = .fullResolution, thumbnailSize: CGSize = CGSize(width: 100, height: 100)) {
-        
-        var targetSize = PHImageManagerMaximumSize
-        var contentMode: PHImageContentMode = .aspectFit
-        
-        if sizeMode == .screenSize {
-            let width = UIScreen.main.bounds.size.width < UIScreen.main.bounds.size.height ? UIScreen.main.bounds.size.width : UIScreen.main.bounds.size.height
-            let height = UIScreen.main.bounds.size.width > UIScreen.main.bounds.size.height ? UIScreen.main.bounds.size.width : UIScreen.main.bounds.size.height
-            targetSize = CGSize(width: width, height: height)
-        }else if sizeMode == .thumbnail {
-            targetSize = thumbnailSize
-            contentMode = .aspectFill
-        }
-        
-        PHImageManager.default().requestImage(for: asset, targetSize: targetSize, contentMode: contentMode, options: nil) { (img, _ ) in
-            resultHandler(img)
-        }
-    }
 }

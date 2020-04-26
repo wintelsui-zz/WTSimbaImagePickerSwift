@@ -31,6 +31,7 @@
     
     [self presentViewController:picker animated:YES completion:nil];
     
+//    WTSimbaImageAssistant image
 }
 
 #pragma mark - -- WTSimbaImagePickerControllerDelegate --
